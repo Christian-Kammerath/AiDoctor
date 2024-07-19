@@ -31,7 +31,7 @@ class DataBase:
             return e
 
     # returns entire table
-    def get_table(self, table_name):
+    def get_all_table_values(self, table_name):
         try:
             cursor = self.connection.cursor()
             cursor.execute(f'SELECT * FROM {table_name}')
