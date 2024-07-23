@@ -20,11 +20,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 def open_browser():
-    webbrowser.open_new('http://127.0.0.1:8000')
+    webbrowser.open_new('http://0.0.0.0:8000')
 
 if __name__ == "__main__":
     # set a timer to open the browser after the server starts
     Timer(1, open_browser).start()
     # Start the Uvicorn-Server
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
