@@ -2,7 +2,7 @@ import importlib.util
 import os
 
 
-# reads all api endpoints from one of the python files in a directory and adds them to the app. The only condition is
+# reads all api endpoints from  python files in a directory and adds them to the app. The only condition is
 # that you use "router = APIRouter()" in your file and bind to router e.g. "@router.get()"
 
 def include_routers(app, directory):
