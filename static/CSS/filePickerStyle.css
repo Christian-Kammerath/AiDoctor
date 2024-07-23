@@ -1,0 +1,67 @@
+body{
+    height: 90vh;
+    background-color: blue;
+}
+
+#filePickerHeader{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+}
+
+#filePickerPath{
+    width: 50%;
+    height: 70%;
+    background-color: rgba(240, 255, 255, 0.445);
+    color: white;
+    font-size: larger;
+}
+
+#filePickerSearch{
+    width: 45%;
+    height: 70%;
+    background-color: rgba(240, 255, 255, 0.445);
+    color: white;
+    font-size: larger;
+
+}
+
+#fileView{
+    height: 99%;
+    background-color: rgba(240, 255, 255, 0.445);;
+}
+
+#controlPanel{
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+    color: white;
+    margin-top: 5px;
+}
+
+.controlDiv{
+    border: 5px solid rgb(255, 255, 255);
+    height: 30px;
+    width: 80px;
+    display: flex;            
+    align-items: center;        
+    justify-content: center;    
+    text-align: center;
+    cursor: pointer;  
+    user-select: none;  
+} 
+
+.controlDiv:hover{
+    background-color: rgba(128, 255, 0, 0.438);
+}
+
+.fileX{
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.fileX:hover{
+    background-color: rgb(16, 31, 95);
+}
