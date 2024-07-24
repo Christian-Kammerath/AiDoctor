@@ -20,8 +20,7 @@ def get_directory_values(path):
     return os.listdir(path)
 
 
-# reads directory and creates list with name path and a path to a matching icon. Currently only directory,
-# but should return all types of files with matching icon.
+# reads directory and creates list with name path and a path to a matching icon.
 def generate_div_info_list(path):
     result = []
     files = get_directory_values(path)
