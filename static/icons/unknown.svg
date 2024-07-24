@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rechteck mit abgerundeten Ecken -->
+  <rect x="8" y="8" width="38" height="46" rx="4" ry="4" fill="#E0E0E0" />
+
+
+  <!-- Rahmen des PDF Dokuments -->
+  <rect x="9" y="10" width="36" height="42" rx="4" ry="4" fill="#808080 " />
+
+  <!-- Schriftzug "PDF" -->
+  <text x="28" y="34" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle" alignment-baseline="middle">N/A</text>
+</svg>

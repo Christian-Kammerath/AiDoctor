@@ -1,0 +1,10 @@
+{
+  "icons": {
+    "Directory": "static/icons/folder_icon.svg",
+    "files": {
+      ".PDF": "static/icons/pdf.svg",
+      ".TXT": "static/icons/txt.svg",
+      "unknown": "static/icons/unknown.svg"
+    }
+  }
+}

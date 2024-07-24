@@ -29,11 +29,16 @@ def add_projects(new_project: apiBaseClasses.Project):
 def add_new_folder(new_folder: apiBaseClasses.NewProjectFolder):
 
     try:
-        project_path = dataBase.DataBase('projectsDb').select('project','projectPath',f'id = {new_folder.project_id}')
-        path = os.path.join(project_path,*new_folder.name)
+        project_path = dataBase.DataBase('projectsDb').select('project','projectPath',f'ID = {new_folder.project_id}')
+        project_path = project_path[0][0]
+        folder_list = list(new_folder.add_path)
+
+        path = os.path.join(project_path,*folder_list)
 
         if not os.path.exists(path):
-            os.mkdir(path)
+            os.makedirs(path)
+
+        return {'msg': f"created {path}"}
 
     except FileNotFoundError:
         return {'msg': "FileNotFoundError"}

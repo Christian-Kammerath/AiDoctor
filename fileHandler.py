@@ -1,4 +1,7 @@
 import os.path
+import json
+import pathlib
+import magic
 
 
 # saves file from binary data. e.g. from image upload
@@ -20,11 +23,26 @@ def get_directory_values(path):
 # reads directory and creates list with name path and a path to a matching icon. Currently only directory,
 # but should return all types of files with matching icon.
 def generate_div_info_list(path):
-    divs = []
-    result = get_directory_values(path)
+    result = []
+    files = get_directory_values(path)
 
-    for i in result:
+    settings = {}
+
+    with open("filePickerSettings.json", 'r') as file:
+        settings = json.load(file)
+
+    for i in files:
         if os.path.isdir(os.path.join(path, i)):
-            divs.append({'name': i, 'path': os.path.join(path, i), 'icon_path': 'static/icons/folder_icon.svg'})
+            result.append({'name': i,
+                           'path': os.path.join(path, i),
+                           'icon_path': settings['icons']['Directory']})
+        elif os.path.isfile(os.path.join(path, i)):
+            try:
+                result.append({'name': i,
+                               'path': os.path.join(path, i),
+                               'icon_path': settings['icons']['files'][pathlib.Path(i).suffix.upper()]})
+            except KeyError:
+                result.append({'name': i, 'path': path,
+                               'icon_path': settings['icons']['files']['unknown']})
 
-    return divs
+    return result
