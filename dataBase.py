@@ -57,7 +57,6 @@ class DataBase:
     def select(self,from_tabel,what,where):
         try:
             cursor = self.connection.cursor()
-            print(f'SELECT {what} FROM {from_tabel} WHERE {where}')
             cursor.execute(f'SELECT {what} FROM {from_tabel} WHERE {where}')
             result = cursor.fetchall()
             self.commit_and_close(cursor)
