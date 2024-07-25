@@ -88,12 +88,12 @@
       /removeCacheEntry/{id}
       example: http://0.0.0.0:8000/removeCacheEntry/123
 
-     ### /cacheIdIsAssigned/{cache_id} (GET)
+   ### /cacheIdIsAssigned/{cache_id} (GET)
    #### checks whether an id is already occupied
       /cacheIdIsAssigned/{cache_id}
       example: http://0.0.0.0:8000/cacheIdIsAssigned/123
    
-   ### /getUnusedId
+   ### /getUnusedId (GET)
    #### returns an unused random id from numbers
       /getUnusedId
       example: http://0.0.0.0:8000/getUnusedId
