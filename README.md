@@ -6,7 +6,7 @@
    The entire project is still in a very early stage and is currently in a phase of experimentation and exploration.
 
     1. pip install fastapi
-    
+
 
 ## predefined API endpoints (Data Base)
    used to create and communicate with sqlite3 databases
@@ -112,6 +112,16 @@
       {
      "path": "string"
       }
+
+   ### /cacheIdIsAssigned/{cache_id} (GET)
+   #### checks whether an id is already occupied
+      /cacheIdIsAssigned/{cache_id}
+      example: http://0.0.0.0:8000/cacheIdIsAssigned/123
+   
+   ### /getUnusedId
+   #### returns an unused random id from numbers
+      /getUnusedId
+      example: http://0.0.0.0:8000/getUnusedId
    
 ## predefined API endpoints (Project)
    
