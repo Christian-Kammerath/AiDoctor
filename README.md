@@ -4,6 +4,8 @@
    The goal of the project is to create a tool that simplifies working with TensorFlow and other frameworks.
    The plan is to structure everything in a modular way so that, based on the API, anyone can build and reuse their own tools and components.
    The entire project is still in a very early stage and is currently in a phase of experimentation and exploration.
+   
+   The project will initially only work on the client side, but in the future it should be able to run on servers to enable cooperative work
 
     1. pip install fastapi
 
