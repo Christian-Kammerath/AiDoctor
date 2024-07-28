@@ -1,16 +1,39 @@
-async function loadFiles() {
+async function loadFiles(mode,targetDiv) {
 
-    let path = document.getElementById('filePickerPath');
+    let path = "";
+    let pathDiv = "";
+    
+    let settings = await fetch('/module/publicSettings.json');
+    settings = await settings.json();
+
+    basic_address = "";
+    
+
+    if(mode === 'client'){
+        basic_address = `${settings['connect']['client_ip']}:${settings['connect']['client_port']}`;
+        path = document.getElementById('filePickerPathClient');
+        pathDiv = "filePickerPathClient";
+
+    }
+    else if (mode === 'server'){
+        basic_address = `${settings['connect']['server_ip']}:${settings['connect']['server_port']}`;
+        path = document.getElementById('filePickerPathServer');
+        pathDiv = "filePickerPathServer";
+
+    }
+
 
     if(path.value.length < 1){
-        path = await fetch('http://0.0.0.0:8000/basePath')
+        path = await fetch(`http://${basic_address}/${mode}/basePath`)
         path = await path.json();
     }
     else{
         path = path.value;
     }
 
-    const response = await fetch('http://0.0.0.0:8000/getFilesDivs', {
+    let test = `http://${basic_address}/${mode}/getFilesDivs`;
+    console.log(test);
+    const response = await fetch(test, {
         method: "POST",
         body: JSON.stringify({
             path: path
@@ -21,7 +44,7 @@ async function loadFiles() {
     });
     if (response.ok) {
         const data = await response.json();
-        const container = document.getElementById('fileView');
+        const container = document.getElementById(targetDiv);
         container.innerHTML = ""
 
         const result = data['result'];
@@ -34,9 +57,9 @@ async function loadFiles() {
 
 
             div.addEventListener('dblclick', () => {
-                document.getElementById('filePickerPath').value = element['path'];
+                document.getElementById(pathDiv).value = element['path'];
                 container.innerHTML = ""
-                loadFiles();
+                loadFiles(mode,targetDiv);
             });
             div.addEventListener('click', () => {
 
@@ -68,4 +91,17 @@ async function loadFiles() {
     }
 }
 
-loadFiles();
+
+async function select(){
+    const container = document.getElementById('fileView');
+    
+    const divs = container.getElementsByClassName('fileX');
+    const selectedDivs = Array.from(divs).filter(div => div.dataset.isSelect === "true");
+    return selectedDivs;
+}
+
+
+
+loadFiles('client','client');
+loadFiles('server','server');
+

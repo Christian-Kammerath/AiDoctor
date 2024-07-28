@@ -1,7 +1,5 @@
 from fastapi import APIRouter
-import apiBaseClasses
-import dataBase
-
+from server import apiBaseClasses, dataBase
 
 # creates a router for the end points
 router = APIRouter()

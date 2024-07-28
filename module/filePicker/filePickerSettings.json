@@ -1,0 +1,10 @@
+{
+  "icons": {
+    "Directory": "module/filePicker/icons/folder_icon.svg",
+    "files": {
+      ".PDF": "module/filePicker/icons/pdf.svg",
+      ".TXT": "module/filePicker/icons/txt.svg",
+      "unknown": "module/filePicker/icons/unknown.svg"
+    }
+  }
+}

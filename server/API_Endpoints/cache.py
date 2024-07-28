@@ -3,7 +3,7 @@ import random
 from fastapi import WebSocket, WebSocketDisconnect
 from fastapi import APIRouter
 import asyncio
-import apiBaseClasses
+from server import apiBaseClasses
 
 router = APIRouter()
 

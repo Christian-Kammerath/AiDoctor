@@ -1,7 +1,6 @@
 import os.path
 import json
 import pathlib
-import magic
 
 
 # saves file from binary data. e.g. from image upload
@@ -27,7 +26,7 @@ def generate_div_info_list(path):
 
     settings = {}
 
-    with open("filePickerSettings.json", 'r') as file:
+    with open("module/filePicker/filePickerSettings.json", 'r') as file:
         settings = json.load(file)
 
     for i in files:

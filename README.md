@@ -5,8 +5,13 @@
    The plan is to structure everything in a modular way so that, based on the API, anyone can build and reuse their own tools and components.
    The entire project is still in a very early stage and is currently in a phase of experimentation and exploration.
    
-   The project will initially only work on the client side, but in the future it should be able to run on servers to enable cooperative work
 
+## parameter
+   --mode backend : Server only 
+   --mode frontend : client only
+   --mode full: client and server (The choice if you're working on-premises without an additional server)
+
+## dependencies
     1. pip install fastapi
 
 
@@ -100,33 +105,7 @@
       /getUnusedId
       example: http://0.0.0.0:8000/getUnusedId
 
-## predefined API endpoints (Files)
 
-   ### /basePath (GET)
-   #### returns the home basic path
-      /basePath
-      example: http://0.0.0.0:8000/basePath
-
-   
-   ### /getFilesDivs (POST)
-   #### returns a list with lots of information with path to matching icon intended to create divs for the planned file
-   #### picker to represent the files and folders
-      path: str
-      --------------
-      {
-     "path": "string"
-      }
-
-   ### /getFiles (POST)
-   #### list files from the given path and returns a list of the files
-      path: str
-      --------------
-      {
-     "path": "string"
-      }
-
- 
-   
 ## predefined API endpoints (Project)
    
    ### /addProject (POST)
@@ -166,5 +145,17 @@
    #### is used for HTML response of values from .html files within static/HTML/
       /extend/{html_name}
       example: http://0.0.0.0:8000/extend/test.html
+
+
+
+## Modul
+   Modules are program extensions that can be created individually by everyone in the final project
    
-      
+   In order to insert a new module, a new folder must be created in the modules folder in which the program comes.
+   A corresponding API endpoint must then be added to the client and/or server.  As a rule, it is enough to add the API endpoint to the server unless you need to access client data.
+   If an API endpoint should be set in both, differences must be made between the two, for example by specifying /client/ /server/ in the URL for the endpoints.
+   
+## Modul API endpoints (FilePicker)
+   #### The FilePicker extension is under development and is intended to handle data from the server and client. Select move upload
+   ### /FilePicker (GET)
+   #### returns FilePicker as html project

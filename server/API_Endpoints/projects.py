@@ -1,9 +1,8 @@
 import os.path
 
 from fastapi import APIRouter
-import dataBase
 
-import apiBaseClasses
+from server import apiBaseClasses, dataBase
 
 # creates a router for the end points
 router = APIRouter()
@@ -29,7 +28,7 @@ def add_projects(new_project: apiBaseClasses.Project):
 def add_new_folder(new_folder: apiBaseClasses.NewProjectFolder):
 
     try:
-        project_path = dataBase.DataBase('projectsDb').select('project','projectPath',f'ID = {new_folder.project_id}')
+        project_path = dataBase.DataBase('projectsDb').select('project', 'projectPath', f'ID = {new_folder.project_id}')
         project_path = project_path[0][0]
         folder_list = list(new_folder.add_path)
 
