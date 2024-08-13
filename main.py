@@ -1,41 +1,11 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
-import os
-import uvicorn
-import webbrowser
-import loadSettings
-from Routers import include_routers
+import startDialog
+from loadSettings import get_settings
 import argparse
+import run
 
 # initializes api and reads in the points fom file routes
 app = FastAPI()
-
-# start server
-def start_backend(host_ip, port):
-    routes_directory = os.path.join(os.path.dirname(__file__), "server/API_Endpoints")
-    include_routers(app, routes_directory)
-    app.mount("server/static", StaticFiles(directory="static"), name="static")
-    app.mount("/module", StaticFiles(directory="module"), name="module")
-    uvicorn.run(app, host=host_ip, port=port)
-
-
-# start client
-def start_frontend(host_ip, port):
-    routes_directory = os.path.join(os.path.dirname(__file__), "client/API_Endpoints")
-    include_routers(app, routes_directory)
-    app.mount("/module", StaticFiles(directory="module"), name="module")
-    uvicorn.run(app, host=host_ip, port=port)
-
-
-# start client and server
-def start_full(host_ip, port):
-    routes_directory = os.path.join(os.path.dirname(__file__), "client/API_Endpoints")
-    include_routers(app, routes_directory)
-    routes_directory = os.path.join(os.path.dirname(__file__), "server/API_Endpoints")
-    include_routers(app, routes_directory)
-    app.mount("/server/static", StaticFiles(directory="server/static"), name="static")
-    app.mount("/module", StaticFiles(directory="module"), name="module")
-    uvicorn.run(app, host=host_ip, port=port)
 
 
 if __name__ == "__main__":
@@ -47,15 +17,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # loaded settings and copy ip and port settings in client and server settings json file
-    settings = loadSettings.Settings('settings.json')
-    loaded_settings = settings.load_settings()
-    settings.copy_setting_entry_to_other_file("server/publicSettings.json", 'connect')
-    settings.copy_setting_entry_to_other_file("module/publicSettings.json", 'connect')
+    settings = get_settings
+    settings.copy_setting_entry_to_other_file("extensions/dockerSettings.json", 'Docker', 'extensions'
+                                              , 'extensions_api')
 
-    # Starts Client Server or both, depending on the startup
-    if args.mode == "backend":
-        start_backend(loaded_settings['connect']['server_ip'], loaded_settings['connect']['server_port'])
-    elif args.mode == "frontend":
-        start_frontend(loaded_settings['connect']['client_ip'], loaded_settings['connect']['client_port'])
-    elif args.mode == "full":
-        start_full(loaded_settings['connect']['client_ip'], loaded_settings['connect']['client_port'])
+    if startDialog.start():
+
+        # Starts Client Server or both, depending on the startup
+        if args.mode == "backend":
+            run.start_backend(app, settings.select('connect', 'server_ip'), settings.select('connect', 'server_port'))
+        elif args.mode == "frontend":
+            run.start_frontend(app, settings.select('connect', 'client_ip'), settings.select('connect', 'client_port'))
+        elif args.mode == "full":
+            run.start_full(app, settings.select('connect', 'server_ip'), settings.select('connect', 'client_port'))

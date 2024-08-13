@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='/server/get_file_from_plugin/{"path":"extensions,plugins,Login,loginCss.css"}'>
+    <style ></style>
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Benutzername:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Anmelden</button>
+        </form>
+    </div>
+    <script src='/server/get_file_from_plugin/{"path":"extensions,plugins,Login,loginScript.js"}'></script>
+</body>
+</html>

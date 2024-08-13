@@ -26,7 +26,7 @@ def generate_div_info_list(path):
 
     settings = {}
 
-    with open("module/filePicker/filePickerSettings.json", 'r') as file:
+    with open("extensions/filePicker/filePickerSettings.json", 'r') as file:
         settings = json.load(file)
 
     for i in files:

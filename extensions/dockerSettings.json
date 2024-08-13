@@ -1,0 +1,7 @@
+{
+    "Docker": {
+        "address": "0.0.0.0",
+        "address_port": 9000,
+        "use_https": false
+    }
+}

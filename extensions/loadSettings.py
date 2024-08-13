@@ -33,9 +33,10 @@ class Settings:
         with open(target_path, 'w') as file:
             json.dump(new_dic, file, indent=4)
 
-    # selects an entry
+    # selects an entry from settings and returns it
     def select(self, *key):
         last_select = self.settings
+        print(last_select)
 
         try:
             for i in key:
@@ -46,4 +47,3 @@ class Settings:
         return last_select
 
 
-get_settings = Settings('settings.json').load_settings()

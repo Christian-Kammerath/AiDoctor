@@ -13,6 +13,9 @@
 
 ## dependencies
     1. pip install fastapi
+    2. pip install pyjwt
+    3. pip install httpx
+    4. pip install uvicorn
 
 
 ## predefined API endpoints (Data Base)

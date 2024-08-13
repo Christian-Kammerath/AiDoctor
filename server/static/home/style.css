@@ -1,0 +1,57 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    height: 90vh;
+    
+}
+
+#templateHeader{
+    width: 90vw;
+    height: 5vh;
+    background-color: rgb(16, 37, 158);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+}
+
+#projectView{
+    width: 20%;
+    height: 98%;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#show{
+    width: 79%;
+    height: 98%;
+    border: none;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#logout {
+    color: white;
+    border: 1px solid white;
+    width: 5%;
+    height: 60%;
+    text-align: center;
+    font-weight: bolder;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout:hover{
+    box-shadow:  0 4px 8px 0 rgba(185, 21, 21, 0.521), 0 6px 20px 0 rgba(151, 16, 16, 0.788);
+
+}

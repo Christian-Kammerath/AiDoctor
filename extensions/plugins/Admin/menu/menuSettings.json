@@ -1,0 +1,8 @@
+{
+    "entries": {
+        "User":{
+            "iconPath":"/server/get_file_from_plugin/{'path':'extensions,plugins,Admin,menu,user,user.svg'}",
+            "htmlPath":"/server/get_file_from_plugin/{'path':'extensions,plugins,Admin,menu,user,user.html'}"
+        }
+    }
+}

@@ -1,10 +1,8 @@
-import webbrowser
-
 from fastapi import APIRouter
 from starlette.responses import HTMLResponse
 
 from server import apiBaseClasses
-from module.filePicker import fileHandler
+from extensions.plugins.filePicker import fileHandler
 import os
 
 # creates a router for the end points
@@ -29,9 +27,9 @@ def get_files(path: apiBaseClasses.GetFiles):
 async def get_files(path: apiBaseClasses.GetFiles):
     return {'result': fileHandler.generate_div_info_list(path.path)}
 
-# returns html page from module FilePicker
+# returns html page from extensions FilePicker
 @router.get('/FilePicker', response_class=HTMLResponse)
 def get_file_picker():
-    with open('module/filePicker/filePicker.html') as file:
+    with open('extensions/filePicker/filePicker.html') as file:
         return file.read()
 

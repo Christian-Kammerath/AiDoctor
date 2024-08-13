@@ -1,0 +1,23 @@
+# Basis-Image
+FROM python:3.11-slim
+
+# Setzen des Arbeitsverzeichnisses
+WORKDIR /app
+
+# Kopieren der Anforderungen
+COPY Docker/extensions/requirements.txt /app/requirements.txt
+
+# Installieren der Abhängigkeiten
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Kopieren des Projektcodes
+COPY extensions /app/extensions
+
+# Setzen des PYTHONPATH
+ENV PYTHONPATH=/app
+
+# Exponieren des Ports
+EXPOSE 80
+
+# Starten des Servers
+CMD ["python", "/app/extensions/run.py"]

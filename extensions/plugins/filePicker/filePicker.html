@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/plugins/filePicker/filePickerStyle.css">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    <title>File Picker</title>
+</head>
+<body>
+    <div id="filePickerHeader">
+        <div class="searchHeader">
+            <input type="text" class="pathInput" id="filePickerPathClient" onchange="loadFiles('client','client')"></input>
+            <input type="text" class="searchInput" id="filePickerSearchClient"></input>
+        </div>
+        <div class="searchHeader">
+             <input type="text" class="pathInput"  id="filePickerPathServer" onchange="loadFiles('server','server')"></input>
+             <input type="text" class="searchInput" id="filePickerSearchServer"></input>
+        </div>
+       
+    </div>
+    <div id="fileView">
+        <div id="client"></div>
+        <div id="server"></div>
+    </div>
+    <div id="controlPanel">
+        <div class="controlDiv"  id="abort">CANCELS</div>
+        <div class="controlDiv" id="selectFile" onclick="select()" >SELECT</div>
+    </div>
+    <script src="/plugins/filePicker/filePickerScript.js"></script>
+</body>
+</html>

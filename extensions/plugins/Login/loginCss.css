@@ -1,0 +1,26 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;  
+    align-items: center; 
+    width: 20%;
+    height: 30%;
+    background-color: blue;
+    color: white;
+
+}
+
+#login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;   
+}
