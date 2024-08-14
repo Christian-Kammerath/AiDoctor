@@ -5,6 +5,11 @@
    The plan is to structure everything in a modular way so that, based on the API, anyone can build and reuse their own tools and components.
    The entire project is still in a very early stage and is currently in a phase of experimentation and exploration.
    
+## Next goals
+   1. implementation of optional https usage
+   2. creation of automated unit tests
+   3. storage, transfer and revision of the JWT tokens.
+   4. expansion of Docker implementation 
 
 ## parameter
    --mode backend : Server only 
@@ -141,13 +146,9 @@
 ## predefined API endpoints (root)
    
    ### / (GET)
-   #### returns the content of index.html as an HTML response. Serves as an overlay template in which future individually created work windows are to be loaded into an iframe
+   #### returns a login page if no valid token is present and the home page if the user is logged in 
       http://0.0.0.0:8000/
-   
-   ### /extend/{html_name} (GET)
-   #### is used for HTML response of values from .html files within static/HTML/
-      /extend/{html_name}
-      example: http://0.0.0.0:8000/extend/test.html
+
 
 
 
