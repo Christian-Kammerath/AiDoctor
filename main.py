@@ -4,7 +4,7 @@ from loadSettings import get_settings
 import argparse
 import run
 
-# initializes api and reads in the points fom file routes
+# initializes api
 app = FastAPI()
 
 
